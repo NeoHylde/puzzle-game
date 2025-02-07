@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jigsaw Maker</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      #image-container img {
+        max-width: 300px;
+        margin-top: 20px;
+        border: 10px solid #000000;
+        border-radius: 10px;
+      }
+      /* Difficulty Slider */
+      .slidecontainer {
+        width: 50%;
+      }
+      .slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #646464;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+      .slider:hover {
+        opacity: 1;
+      }
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #000000;
+        cursor: pointer;
+      }
+      .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #000000;
+        cursor: pointer;
+      }
+      #game-area {
+        width: 600px;
+        height: 600px;
+        border: 2px dashed #000;
+        position: relative;
+        margin: 20px auto;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <div id="image-container">
+      <img id="uploadedImage" width="224" height="224" style="display: none" />
+    </div>
+
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="1"
+        max="3"
+        step="1"
+        value="2"
+        class="slider"
+        id="myRange"
+      />
+      <div class="difficulty-label" id="difficultyLabel">Medium</div>
+    </div>
+
+    <button id="game-starter" hidden="true">Start Puzzle</button>
+
+    <!-- Puzzle Game Area (Draggable Zone) -->
+    <div
+      id="game-area"
+      style="
+        width: 600px;
+        height: 600px;
+        border: 2px dashed #000;
+        position: relative;
+        margin: 20px auto;
+        overflow: hidden;
+      "
+    ></div>
+
+    <!-- JavaScript should be loaded after HTML -->
+    <script type="module" src="js/imageUpload.js"></script>
+    <script type="module" src="js/puzzleLogic.js"></script>
+    <script type="module" src="js/dragDrop.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
